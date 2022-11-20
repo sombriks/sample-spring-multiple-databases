@@ -7,6 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -42,14 +43,18 @@ public class H2DatasourceConfiguration {
     }
 
     @Bean
+    @Primary
+    @ConfigurationProperties("jpa.properties.h2")
+    public Map<String, String> h2JpaProperties() {
+        return new HashMap<>();
+    }
+
+    @Bean
     public LocalContainerEntityManagerFactoryBean h2EntityManagerFactory(
             EntityManagerFactoryBuilder entityManagerFactoryBuilder,
-            @Qualifier("h2DataSource") DataSource dataSource
+            @Qualifier("h2DataSource") DataSource dataSource,
+            @Qualifier("h2JpaProperties") Map<String, String> jpaProperties
     ) {
-        Map<String, String> jpaProperties = new HashMap<>();
-        jpaProperties.put("hibernate.hbm2ddl.auto", "create-drop");
-        jpaProperties.put("hibernate.hbm2ddl.import_files", "db/script.h2.sql");
-
         return entityManagerFactoryBuilder
                 .dataSource(dataSource)
                 .packages("sample.spring.multipledatabases.model.h2")

@@ -27,6 +27,7 @@ jpa and spring repositories) in a single project.
 - <https://www.baeldung.com/sql-logging-spring-boot#2-via-loggers>
 - <https://www.baeldung.com/java-in-memory-databases>
 - <https://www.baeldung.com/spring-data-jpa-multiple-databases>
+- <https://stackoverflow.com/questions/31045955/using-configurationproperties-to-fill-map-in-generic-way>
 
 ## Reference Documentation
 

@@ -45,15 +45,18 @@ public class HsqldbDatasourceConfiguration {
     }
 
     @Bean
+    @ConfigurationProperties("jpa.properties.hsqldb")
+    public Map<String, String> hsqlJpaProperties() {
+        return new HashMap<>();
+    }
+
+    @Bean
     @Primary
     public LocalContainerEntityManagerFactoryBean hsqldbEntityManagerFactory(
             EntityManagerFactoryBuilder entityManagerFactoryBuilder,
-            @Qualifier("hsqldbDataSource") DataSource dataSource
+            @Qualifier("hsqldbDataSource") DataSource dataSource,
+            @Qualifier("hsqlJpaProperties") Map<String, String> jpaProperties
     ) {
-        Map<String, String> jpaProperties = new HashMap<>();
-        jpaProperties.put("hibernate.hbm2ddl.auto", "create-drop");
-        jpaProperties.put("hibernate.hbm2ddl.import_files", "db/script.hsqldb.sql");
-
         return entityManagerFactoryBuilder
                 .dataSource(dataSource)
                 .packages("sample.spring.multipledatabases.model.hsqldb")
