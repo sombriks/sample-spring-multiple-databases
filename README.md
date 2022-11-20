@@ -18,7 +18,7 @@ jpa and spring repositories) in a single project.
   - DataSource
   - LocalContainerEntityManagerFactoryBean
   - PlatformTransactionManager
-- starting from java 11, add '--add-modules java.sql' in compiler options
+- starting from java 11, add `--add-modules java.sql` in compiler options
 - one of those configurations MUST annotate beans as @Primary
 
 ## Research sources
