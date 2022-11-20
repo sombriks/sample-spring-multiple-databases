@@ -3,6 +3,14 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+## database files
+*.hsqldb.log
+*.hsqldb.properties
+*.hsqldb.script
+
+*.h2.mv.db
+*.h2.trace.db
+
 ### STS ###
 .apt_generated
 .classpath
