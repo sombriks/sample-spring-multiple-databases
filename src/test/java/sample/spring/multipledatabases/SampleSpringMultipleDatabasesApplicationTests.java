@@ -10,6 +10,8 @@ import sample.spring.multipledatabases.model.hsqldb.Imovel;
 import sample.spring.multipledatabases.repository.h2.PessoaRepository;
 import sample.spring.multipledatabases.repository.hsqldb.ImovelRepository;
 
+import java.util.List;
+
 @Transactional
 @SpringBootTest
 class SampleSpringMultipleDatabasesApplicationTests {
@@ -19,10 +21,6 @@ class SampleSpringMultipleDatabasesApplicationTests {
 
     @Autowired
     ImovelRepository imovelRepository;
-
-    @Test
-    void contextLoads() {
-    }
 
     @Test
     void deveriaSalvarPessoa() {
@@ -36,6 +34,17 @@ class SampleSpringMultipleDatabasesApplicationTests {
         Imovel i = new Imovel("Rua 1");
         imovelRepository.save(i);
         Assertions.assertNotNull(i.getId());
+    }
+
+    @Test
+    void deveriaListarPessoas(){
+        List<Pessoa> result = pessoaRepository.findAll();
+        Assertions.assertNotNull(result);
+    }
+    @Test
+    void deveriaListarImoveis(){
+        List<Imovel> result = imovelRepository.findAll();
+        Assertions.assertNotNull(result);
     }
 
 }

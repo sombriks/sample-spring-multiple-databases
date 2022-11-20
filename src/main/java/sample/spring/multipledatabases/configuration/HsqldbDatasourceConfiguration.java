@@ -52,7 +52,7 @@ public class HsqldbDatasourceConfiguration {
     ) {
         Map<String, String> jpaProperties = new HashMap<>();
         jpaProperties.put("hibernate.hbm2ddl.auto", "create-drop");
-        jpaProperties.put("spring.jpa.show-sql", "true");
+        jpaProperties.put("hibernate.hbm2ddl.import_files", "db/script.hsqldb.sql");
 
         return entityManagerFactoryBuilder
                 .dataSource(dataSource)
