@@ -29,7 +29,6 @@ import java.util.Map;
 public class HsqldbDatasourceConfiguration {
 
     @Bean
-    @Primary
     @ConfigurationProperties("spring.datasource.hsqldb")
     public DataSourceProperties hsqldbDataSourceProperties() {
         return new DataSourceProperties();
