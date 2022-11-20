@@ -21,6 +21,13 @@ jpa and spring repositories) in a single project.
 - starting from java 11, add '--add-modules java.sql' in compiler options
 - one of those configurations MUST annotate beans as @Primary
 
+## Research sources
+
+- <https://mmafrar.medium.com/configuring-multiple-data-sources-with-spring-boot-2-and-spring-data-jpa-8e236844e80f>
+- <https://www.baeldung.com/sql-logging-spring-boot#2-via-loggers>
+- <https://www.baeldung.com/java-in-memory-databases>
+- <https://www.baeldung.com/spring-data-jpa-multiple-databases>
+
 ## Reference Documentation
 
 For further reference, please consider the following sections:
